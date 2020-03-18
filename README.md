@@ -4,20 +4,15 @@ ramda-fantasy
 [Fantasy Land][1] compatible types for easy integration with [Ramda][2].
 
 ## Project status
-Ramda-Fantasy is no longer developed. There are a number of excellent libraries providing algebraic datatypes in JavaScript. The existing npm releases of Ramda-Fantasy will remain available indefinitely.
+This fork maintains a version of *ramda-fantasy* to work with the current [Ramda][2] versions. 
+Also backwards-compatible enhancements and additions to the ADTs are made.
 
-We recommend a number of alternative libraries such as [Sanctuary](https://github.com/sanctuary-js), [Folktale](http://folktale.origamitower.com/), [Fluture](https://github.com/fluture-js), and [Fantasy-Land](https://github.com/fantasyland).
+## Enhancements over [original ramda-fantasy][0]
 
-Specifically, we suggest these replacements:
-
-* Maybe: [sanctuary-js/sanctuary-maybe](https://github.com/sanctuary-js/sanctuary-maybe)
-* Either: [sanctuary-js/sanctuary-either](https://github.com/sanctuary-js/sanctuary-either)
-* Future: [fluture-js/Fluture](https://github.com/fluture-js/Fluture)
-* State: [fantasyland/fantasy-states](https://github.com/fantasyland/fantasy-states)
-* Tuple: [fantasyland/fantasy-tuples](https://github.com/fantasyland/fantasy-tuples)
-* Reader: [fantasyland/fantasy-readers](https://github.com/fantasyland/fantasy-readers)
-* IO: [fantasyland/fantasy-io](https://github.com/fantasyland/fantasy-io)
-* Identity: [sanctuary-js/sanctuary-identity](https://github.com/sanctuary-js/sanctuary-identity)
+| ADT               |   `.tap`  |
+|:-----------------:|:---------:|
+|[Maybe][13]        | *✔︎*      |
+| [Identity][11]    |    **✔︎** | 
 
 ## Available types
 
@@ -40,6 +35,7 @@ Access like so:
 ## available translations
 [Spanish](https://github.com/idcmardelplata/ramda-fantasy)
 
+[0]: https://github.com/ramda/ramda-fantasy
 [1]: https://github.com/fantasyland/fantasy-land
 [2]: https://github.com/ramda/ramda
 [3]: https://github.com/fantasyland/fantasy-land#setoid

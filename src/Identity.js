@@ -44,6 +44,11 @@ Identity.prototype.map = function(f) {
   return new Identity(f(this.value));
 };
 
+Identity.prototype.tap = function(f) {
+  f(this.value);
+  return this;
+};
+
 /**
  * Apply specification. Applies the function inside the `Identity[a]`
  * type to another applicative type.

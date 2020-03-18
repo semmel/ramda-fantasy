@@ -134,7 +134,7 @@ describe('IO', function() {
 
     it('returns the string representation of an IO', function() {
       assert.strictEqual(IO(function() {}).toString(),
-                         'IO(function () {})');
+                         'IO(function() {})');
     });
 
   });

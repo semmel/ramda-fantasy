@@ -3,7 +3,6 @@ var assert = require('assert');
 var equalsInvoker = require('./utils').equalsInvoker;
 var types = require('./types')(equalsInvoker);
 var Future = require('../src/Future');
-var Promise = require('promise');
 
 Future.prototype.equals = function(b) {
   var self = this;
@@ -286,7 +285,7 @@ describe('Future', function() {
     it('returns the string representation of a Future', function() {
       assert.strictEqual(
         Future(function(reject, resolve) { void resolve; }).toString(),
-        'Future(function (reject, resolve) { void resolve; })'
+        'Future(function(reject, resolve) { void resolve; })'
       );
     });
 

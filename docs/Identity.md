@@ -64,3 +64,10 @@ contained withing the instance of this `Identity`.
 ```
 Produces a new `Identity` instance by applying the value of this `Identity` to
 the provided function.
+
+### `identity.tap`
+```hs
+:: Identity a ~> (a -> *) -> Identity a
+```
+Executes a side-effect like `console.log` on the contained value.
+

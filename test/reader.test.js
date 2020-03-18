@@ -104,7 +104,7 @@ describe('Reader properties', function() {
 
     it('returns the string representation of a Reader', function() {
       assert.strictEqual(Reader(function(x) { void x; }).toString(),
-                         'Reader(function (x) { void x; })');
+                         'Reader(function(x) { void x; })');
     });
 
   });

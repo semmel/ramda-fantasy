@@ -1,5 +1,5 @@
 var R = require('ramda');
-var assert = require('assert');
+var assert = require('chai').assert;
 var equalsInvoker = require('./utils').equalsInvoker;
 var types = require('./types')(equalsInvoker);
 var jsv = require('jsverify');
@@ -232,6 +232,32 @@ describe('Maybe usage', function() {
       jsv.assert(jsv.forall(jsv.integer, function(n) {
         return Maybe.toMaybe(n).isJust;
       }));
+    });
+  });
+  
+  describe("#tap", function() {
+    it("executes the side effect in case of a Just", () => {
+      var
+         sideEffectResult;
+      const
+         tapResult =
+            Maybe.of("foo")
+            .tap(x => { sideEffectResult = `${x}-bar`; });
+      
+      assert(Maybe.isJust(tapResult));
+      assert.strictEqual(tapResult.getOrElse("unexpected fall-back"), "foo", "don't touch the Justs's value");
+      assert.strictEqual(sideEffectResult, "foo-bar", "execute the side effect");
+    });
+    
+    it("does not execute the side effect in case of a Nothing", () => {
+      var valueToRemain = "bar";
+      
+      const tapResult =
+         Maybe.Nothing()
+         .tap(x => { valueToRemain = `unexpected value ${x}`; });
+      
+      assert(Maybe.isNothing(tapResult), "Tapping into Nothing should leave it a Nothing");
+      assert.strictEqual(valueToRemain, "bar", "side effect should not be executed.");
     });
   });
 });

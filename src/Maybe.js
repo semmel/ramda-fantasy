@@ -69,6 +69,13 @@ Just.prototype.map = function(f) {
 
 Nothing.prototype.map = util.returnThis;
 
+Just.prototype.tap = function(f) {
+  f(this.value);
+  return this;
+};
+
+Nothing.prototype.tap = util.returnThis;
+
 // apply
 // takes a Maybe that wraps a function (`app`) and applies its `map`
 // method to this Maybe's value, which must be a function.

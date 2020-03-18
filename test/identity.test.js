@@ -1,4 +1,4 @@
-var assert = require('assert');
+var assert = require('chai').assert;
 var equalsInvoker = require('./utils').equalsInvoker;
 var types = require('./types')(equalsInvoker);
 
@@ -107,7 +107,23 @@ describe('Identity', function() {
     });
 
   });
-
+  
+  describe("#tap", function() {
+    it("executes the side effect on a string value", () => {
+      var
+         sideEffectResult;
+      const
+         tapResult =
+            Identity("foo")
+            .tap(x => {
+              sideEffectResult = `${x}-bar`;
+            });
+    
+      assert.instanceOf(tapResult, Identity);
+      assert.strictEqual(tapResult.get(), "foo", "don't touch the Identity's value");
+      assert.strictEqual(sideEffectResult, "foo-bar", "execute the side effect");
+    });
+  });
 });
 
 describe('Identity example', function() {

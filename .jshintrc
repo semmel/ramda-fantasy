@@ -1,10 +1,22 @@
 {
-  "eqnull": true,
-  "globals": {
-    "Symbol": true
-  },
-  "newcap": false,
-  "predef": ["beforeEach", "console", "define", "describe", "it", "module", "process", "require"],
-  "undef": true,
-  "unused": true
+   "eqnull": true,
+	"laxbreak": true,
+   "newcap": false,
+	"noempty": true,
+	"noarg": true,
+	"laxcomma": true,
+	"unused": "strict",
+	"esversion": 9,
+	"sub": true,
+	"devel": true,
+	"immed": true,
+	"browser": true,
+	"node": true,
+	"curly": true,
+	"undef": true,
+	"nonew": true,
+	"forin": true,
+	"shadow": "outer",
+	"mocha": true,
+	"predef": [ "require", "requirejs", "define", "AbortController", "crypto", "DOMException", "NetworkInformation"]
 }

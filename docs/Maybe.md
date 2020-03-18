@@ -159,6 +159,14 @@ the instance is a `Just` and the provided value is a `Just`, where both
 contained values are also considered equal as determined by `R.equals`.
 Otherwise `false` is returned.
 
+### `maybe.tap`
+```hs
+:: Maybe a ~> (a -> *) -> Maybe a
+```
+Executes a side-effect function like `console.log` on the value of a `Just`.
+A `Nothing` will not trigger the side-effect.
+Returns the instance of the `Maybe`.
+
 #### `maybe.toString`
 ```hs
 :: Maybe a ~> () -> String
