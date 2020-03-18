@@ -159,7 +159,7 @@ the instance is a `Just` and the provided value is a `Just`, where both
 contained values are also considered equal as determined by `R.equals`.
 Otherwise `false` is returned.
 
-### `maybe.tap`
+#### `maybe.tap`
 ```hs
 :: Maybe a ~> (a -> *) -> Maybe a
 ```

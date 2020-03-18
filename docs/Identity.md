@@ -65,7 +65,7 @@ contained withing the instance of this `Identity`.
 Produces a new `Identity` instance by applying the value of this `Identity` to
 the provided function.
 
-### `identity.tap`
+#### `identity.tap`
 ```hs
 :: Identity a ~> (a -> *) -> Identity a
 ```
