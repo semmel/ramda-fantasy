@@ -260,4 +260,19 @@ describe('Maybe usage', function() {
       assert.strictEqual(valueToRemain, "bar", "side effect should not be executed.");
     });
   });
+  
+  describe("is Filterable", function() {
+    const isPositive = x => x > 0;
+    it("moves from a Just to a Nothing on a falsy result", function() {
+      assert(Maybe.isNothing(Maybe.of(-1).filter(isPositive)));
+    });
+    it("remains a Nothing on any result", function() {
+      assert(Maybe.isNothing(Maybe.Nothing().filter(isPositive)));
+    });
+    it("keeps the Just on a truthy result", function() {
+      const result = Maybe.of(1).filter(isPositive);
+      assert(Maybe.isJust(result));
+      assert.strictEqual(result.getOrElse("unexpected fall-back value"), 1);
+    });
+  });
 });

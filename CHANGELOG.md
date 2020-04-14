@@ -4,6 +4,9 @@ Changelog
 `ramda-fantasy`
 --------------
 
+### 0.8.3
+- add `Maybe.filter`
+
 ### 0.8.2
 
 - `.tap` for `Maybe` and `Identity`

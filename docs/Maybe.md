@@ -159,6 +159,14 @@ the instance is a `Just` and the provided value is a `Just`, where both
 contained values are also considered equal as determined by `R.equals`.
 Otherwise `false` is returned.
 
+#### `maybe.filter`
+```hs
+:: Maybe a ~> (a -> Boolean) -> Maybe a 
+```
+Takes a predicate function as parameter which is invoked on the value of a `Just`. 
+Returns a `Nothing` if the instance is a `Nothing` or the predicate evaluates to `false`.
+Returns the same `Just` if the predicated evaluates to `true`. 
+
 #### `maybe.tap`
 ```hs
 :: Maybe a ~> (a -> *) -> Maybe a

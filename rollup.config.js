@@ -4,9 +4,10 @@ import { terser } from "rollup-plugin-terser";
 
 const
 	packageConfig = require('./package.json'),
-	bannerText = ` // Ramda-Fantasy v.${packageConfig.version}
-	// (c) 2015-${new Date().getFullYear()} Michael Hurley, Ludwig Magnusson, Matthias Seemann
-	// Ramda-Fantasy may be freely distributed under the MIT license.`;
+	bannerText = `/* @license Ramda-Fantasy v.${packageConfig.version}
+	(c) 2015-${new Date().getFullYear()} Michael Hurley, Ludwig Magnusson, Matthias Seemann
+	Ramda-Fantasy may be freely distributed under the MIT license.
+*/`;
 
 const
 	config = {
@@ -42,7 +43,17 @@ const
 			commonjs(),
 			resolve({ preferBuiltins: false }),
          terser({
-	        include: [/^.+\.min\.js$/]
+	        include: [/^.+\.min\.m?js$/],
+	         output: {
+					comments: function (node, comment) {
+						var text = comment.value;
+						var type = comment.type;
+						if (type === 'comment2') {
+							// multiline comment
+							return /@license/i.test(text);
+						}
+					}
+				}
 	      })
 		]
 	};

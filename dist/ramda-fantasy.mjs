@@ -1,6 +1,7 @@
-// Ramda-Fantasy v.0.8.2
-	// (c) 2014-2020 Michael Hurley, Ludwig Magnusson, Matthias Seemann
-	// Ramda-Fantasy may be freely distributed under the MIT license.
+/* @license Ramda-Fantasy v.0.8.3
+	(c) 2015-2020 Michael Hurley, Ludwig Magnusson, Matthias Seemann
+	Ramda-Fantasy may be freely distributed under the MIT license.
+*/
 function _isPlaceholder(a) {
        return a != null && typeof a === 'object' && a['@@functional/placeholder'] === true;
 }
@@ -2224,6 +2225,12 @@ Just.prototype.reduce = function(f, x) {
 Nothing.prototype.reduce = function(f, x) {
   return x;
 };
+
+Just.prototype.filter = function(pred) {
+  return pred(this.value) ? this : _nothing;
+};
+
+Nothing.prototype.filter = util.returnThis;
 
 Just.prototype.toString = function() {
   return 'Maybe.Just(' + toString_1(this.value) + ')';

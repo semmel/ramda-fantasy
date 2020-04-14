@@ -152,6 +152,12 @@ Nothing.prototype.reduce = function(f, x) {
   return x;
 };
 
+Just.prototype.filter = function(pred) {
+  return pred(this.value) ? this : _nothing;
+};
+
+Nothing.prototype.filter = util.returnThis;
+
 Just.prototype.toString = function() {
   return 'Maybe.Just(' + toString(this.value) + ')';
 };
